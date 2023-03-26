@@ -1,0 +1,28 @@
+<h1>家計簿</h1>
+<%# 新規作成ページにジャンプ %>
+<%= link_to "+新規", new_book_path, class: "btn btn-success" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>年月</th>
+    <th>区分</th>
+    <th>科目</th>
+    <th>金額</th>
+  </tr>
+
+  <%# @booksの全データを１行ずつbookに挿入%>
+  <% @books.each do |book| %>
+  <tr>
+  <%# 各項目ごとに表示する %>
+    <td><%= book.year %>年<%= book.month %>月</td>
+    <td><%= book.inout %></td>
+    <td><%= book.category %></td>
+    <td><%= book.amount %>万円</td>
+    <td>
+    <%# xxx_pathは、URLを持ってくるメソッド %>
+    <%= link_to "詳細", book_path(book), class: "btn btn-info" %>
+    <%= link_to "編集", edit_book_path(book), class: "btn btn-warning" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
