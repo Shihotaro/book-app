@@ -1,0 +1,26 @@
+<h1>会員登録</h1>
+<%= form_with model: @user, url: signup_path, local: true, data: { turbo: false } do |f| %>
+
+  <div>
+    <label>名前</label>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <label>メールアドレス</label>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <label>パスワード</label>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <label>パスワード確認用</label>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit "登録" %>
+
+<% end %>

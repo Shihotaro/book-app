@@ -1,0 +1,17 @@
+<h1>ログイン</h1>
+
+<%= form_with url: signin_path, local: true, data: { turbo: false } do |f| %>
+
+  <div>
+    <label>メールアドレス</label>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <label>パスワード</label>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "ログイン" %>
+
+<% end %>

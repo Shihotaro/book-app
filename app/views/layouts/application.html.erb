@@ -11,6 +11,30 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="navbar-brand">家計簿アプリ</div>
+      <div>
+        <% if session[:user_id].present? %>
+          <%= link_to "登録内容の更新", edit_user_path, class: "btn btn-outline-info" %>
+          <%= link_to "ログアウト", signout_path, class: "btn btn-outline-secondary" %>
+        <% else %>
+          <%= link_to "会員登録", signup_path, class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+    </nav>
+  
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+  
     <%= yield %>
   </body>
 </html>

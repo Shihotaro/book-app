@@ -22,6 +22,7 @@
     <%# xxx_pathは、URLを持ってくるメソッド %>
     <%= link_to "詳細", book_path(book), class: "btn btn-info" %>
     <%= link_to "編集", edit_book_path(book), class: "btn btn-warning" %>
+    <%= link_to "削除", book_path(book), data:{ turbo_method: :delete } %>
     </td>
   </tr>
   <% end %>
